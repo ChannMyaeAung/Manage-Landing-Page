@@ -1,7 +1,7 @@
 import React from "react";
 
 const GetStarted = () => {
-  return <div>GetStarted</div>;
+  return <div className="px-4">GetStarted</div>;
 };
 
 export default GetStarted;
