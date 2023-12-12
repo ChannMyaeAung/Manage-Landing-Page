@@ -8,8 +8,19 @@ body {
   font-size: 16px;
   font-family: "Be Vietnam Pro", sans-serif;
   font-family: "Montserrat", sans-serif;
+  border: 2px solid red;
 }
-
+/* 
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background-image: url("/bg-simplify-section-mobile.svg");
+  width: 100%;
+  aspect-ratio: 1;
+  background-repeat: no-repeat;
+}
+ */
 button,
 input,
 textarea {
