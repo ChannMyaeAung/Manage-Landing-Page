@@ -57,7 +57,7 @@ const Header = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-between px-4 py-8 overflow-hidden border">
+    <nav className="flex items-center justify-between px-4 py-8 overflow-hidden">
       <figure className="flex-shrink">
         <a href="/">
           <img src={logo} alt="logo" />
@@ -154,7 +154,7 @@ const Header = () => {
           </ul>
         </div>
 
-        <button className="cta__button">Get Started</button>
+        <button className="hidden cta__button md:block">Get Started</button>
       </Fragment>
     </nav>
   );

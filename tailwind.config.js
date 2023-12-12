@@ -12,8 +12,8 @@ export default {
         VeryLightGray: "hsl(0, 0%, 98%)",
       },
       boxShadow: {
-        BrightRedShadow: "1px 3px 1px rgba(242,95, 58, 0.6)",
-        BrightRedShadowHover: "2.5px 5px 5px rgba(242,95, 58, 0.6)",
+        BrightRedShadow: "1px 3px 4px 1px rgba(242,95, 58, 0.6)",
+        BrightRedShadowHover: "2px 4px 5px 1px rgba(242,95, 58, 0.6)",
       },
     },
   },
