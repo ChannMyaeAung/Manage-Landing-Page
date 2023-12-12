@@ -1,9 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo from "../assets/images/logo.svg";
 import { motion } from "framer-motion";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+
+  const navMenuRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (navMenuRef.current && !navMenuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    if (open) {
+      document.addEventListener("click", handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [open]);
+
+  const toggleNavAndModal = (e) => {
+    e.stopPropagation();
+    setOpen((s) => !s);
+  };
 
   const navLinks = [
     {
@@ -43,7 +65,7 @@ const Header = () => {
 
       {/* Mobile Menu Toggle */}
       <motion.div className="z-[999] " animate={open ? "open" : "closed"}>
-        <button className="block md:hidden" onClick={() => setOpen((s) => !s)}>
+        <button className="block md:hidden" onClick={toggleNavAndModal}>
           <svg width="23" height="23" viewBox="0 0 23 23">
             <motion.path
               strokeWidth="3"
@@ -77,15 +99,15 @@ const Header = () => {
         </button>
         {/* Nav Links Modal on mobile screens */}
         <motion.div
+          ref={navMenuRef}
           animate={open ? "open" : "closed"}
           className="fixed left-0 right-0 w-11/12 max-w-xs mx-auto overflow-hidden bg-white rounded-md shadow-lg top-28 md:hidden"
           variants={{
-            closed: { opacity: 0, y: -200, pointerEvents: "none" },
-            open: { opacity: 1, y: 0, pointerEvents: "auto" },
-            transition: {
-              duration: 0.5,
-            },
+            closed: { opacity: 0, x: 300, pointerEvents: "none" },
+            open: { opacity: 1, x: 0, pointerEvents: "auto" },
           }}
+          initial="closed"
+          transition={{ duration: 0.3 }}
         >
           <ul className="flex flex-col items-center gap-10 px-8 py-6 font-bold rounded-sm">
             {navLinks.map((link) => {
@@ -99,8 +121,12 @@ const Header = () => {
         </motion.div>
       </motion.div>
 
+      {/* Background overlay when nav modal is open */}
       {open && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 md:hidden" />
+        <div
+          id="overlay"
+          className="fixed top-0 left-0 w-full h-full bg-black opacity-50 md:hidden"
+        />
       )}
     </nav>
   );
