@@ -22,8 +22,20 @@ body::before {
  */
 button,
 input,
+span,
 textarea,
 ul,
 li {
   font-family: inherit;
 }
+/* 
+.test::before {
+  content: "h";
+  background: hsl(13, 100%, 96%);
+  position: absolute;
+  width: 100%;
+  height: fit-content;
+  border-radius: 100vw;
+  z-index: -1;
+}
+ */

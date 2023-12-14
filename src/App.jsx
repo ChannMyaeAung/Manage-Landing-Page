@@ -15,7 +15,7 @@ function App() {
         <Header />
       </header>
 
-      <main>
+      <main className="flex flex-col gap-10">
         <Hero />
         <Services />
         <Testimonials />
