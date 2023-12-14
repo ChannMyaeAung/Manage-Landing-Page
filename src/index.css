@@ -39,3 +39,17 @@ li {
   z-index: -1;
 }
  */
+
+/* Testimonials Slider */
+article[data-position="lastSlide"] {
+  transform: translateX(-100%);
+}
+
+article[data-position="activeSlide"] {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+article[data-position="nextSlide"] {
+  transform: translateX(100%);
+}
