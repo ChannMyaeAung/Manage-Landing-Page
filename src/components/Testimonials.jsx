@@ -16,7 +16,7 @@ const Testimonials = () => {
   }, [customers, index]);
 
   return (
-    <section className="px-4 mt-10">
+    <section className="px-4 mt-10 overflow-hidden">
       <h1 className="my-6 text-3xl font-bold text-center text-DarkBlue">
         What they've said
       </h1>
