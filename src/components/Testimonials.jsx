@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { testimonials } from "../data";
+import { motion, useDragControls } from "framer-motion";
 
 const Testimonials = () => {
   const [customers, setCustomers] = useState(testimonials);
   const [index, setIndex] = useState(0);
+  const dragControls = useDragControls();
 
   useEffect(() => {
     const lastIndex = customers.length - 1;
@@ -15,13 +17,24 @@ const Testimonials = () => {
     }
   }, [customers, index]);
 
+  const handleDragEnd = (_, info) => {
+    const slideWidth = window.innerWidth; // Adjust this based on your slide width
+    const distance = info.offset.x;
+
+    if (Math.abs(distance) > slideWidth / 10) {
+      const newIndex = distance > 0 ? index - 1 : index + 1;
+      setIndex(Math.max(0, Math.min(newIndex, testimonials.length - 1)));
+    }
+  };
+
   return (
     <section className="px-4 mt-10 overflow-hidden">
       <h1 className="my-6 text-3xl font-bold text-center text-DarkBlue">
         What they've said
       </h1>
 
-      <div className="relative flex flex-col gap-16 mt-16 h-80">
+      {/* For mobile screens with paginations */}
+      <div className="relative flex flex-col gap-16 mt-16 h-80 md:hidden">
         {customers.map((customer, customerIndex) => {
           const { id, name, img, comment } = customer;
 
@@ -66,8 +79,46 @@ const Testimonials = () => {
         })}
       </div>
 
+      {/* For Desktop screens with slider */}
+      <motion.div
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        dragElastic={0.1}
+        dragControls={dragControls}
+        onDragEnd={handleDragEnd}
+        className="relative hidden w-[200vw] my-16 h-80 md:flex gap-8"
+      >
+        {customers.map((customer, customerIndex) => {
+          const { id, name, img, comment } = customer;
+
+          return (
+            <motion.article
+              key={id}
+              style={{
+                x: `-${index * 100}%`,
+              }}
+              className="relative flex items-center p-2 w-[100vw] h-full text-center transition-all rounded-sm bg-DarkGrayishBlue bg-opacity-20"
+            >
+              <figure className="absolute inset-0 w-20 h-20 mx-auto rounded-full -top-10">
+                <img
+                  src={img}
+                  alt={`${name}'s picture`}
+                  className="object-cover w-full h-full"
+                />
+              </figure>
+              <div className="py-4">
+                <h2 className="my-6 text-lg font-semibold">{name}</h2>
+                <p className="mt-3 text-base leading-7 text-DarkGrayishBlue">
+                  "{comment}"
+                </p>
+              </div>
+            </motion.article>
+          );
+        })}
+      </motion.div>
+
       {/* Slider Pagination  */}
-      <div className="flex items-center justify-center gap-1 my-8">
+      <div className="flex items-center justify-center gap-1 my-8 md:hidden">
         {customers.map((_, sliderIndex) => (
           <button
             data-button="pagination-btn"
@@ -79,6 +130,11 @@ const Testimonials = () => {
             }`}
           ></button>
         ))}
+      </div>
+
+      {/* CTA Button  */}
+      <div className="flex items-center justify-center">
+        <button className="mb-3 cta__button">Get Started</button>
       </div>
     </section>
   );
