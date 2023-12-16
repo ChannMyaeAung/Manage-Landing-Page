@@ -14,6 +14,8 @@ export default {
       boxShadow: {
         BrightRedShadow: "1px 3px 4px 1px rgba(242,95, 58, 0.6)",
         BrightRedShadowHover: "2px 4px 5px 1px rgba(242,95, 58, 0.6)",
+        LightGrayShadow: "1px 3px 4px 1px rgba(250,250,250, 0.6)",
+        LightGrayShadowHover: "2px 4px 5px 1px rgba(250,250,250, 0.6)",
       },
     },
   },

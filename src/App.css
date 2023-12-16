@@ -1,4 +1,8 @@
 /* Here are some tailwind apply classes here */
 .cta__button {
-  @apply flex-shrink-0 px-6 py-2 text-white transition-all rounded-full shadow-BrightRedShadow bg-BrightRed hover:shadow-BrightRedShadowHover hover:opacity-80;
+  @apply flex-shrink-0 px-6 py-2 transition-all rounded-full text-VeryLightGray shadow-BrightRedShadow bg-BrightRed hover:shadow-BrightRedShadowHover hover:opacity-80;
+}
+
+.cta__button_reverse {
+  @apply flex-shrink-0 px-6 py-2 font-bold transition-all rounded-full text-BrightRed bg-VeryLightGray hover:opacity-80;
 }

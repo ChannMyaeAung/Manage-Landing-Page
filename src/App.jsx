@@ -10,18 +10,21 @@ import Footer from "./components/Footer";
 function App() {
   return (
     /* Note - Each section has the padding inline of 4. */
-    <div id="App" className="container mx-auto antialiased">
-      <header>
+    <div id="App" className="overflow-hidden antialiased">
+      <header className="container mx-auto">
         <Header />
       </header>
 
-      <main className="flex flex-col gap-10">
+      <main className="container flex flex-col gap-10 mx-auto ">
         <Hero />
         <Services />
         <Testimonials />
+      </main>
+
+      <footer>
         <GetStarted />
         <Footer />
-      </main>
+      </footer>
     </div>
   );
 }

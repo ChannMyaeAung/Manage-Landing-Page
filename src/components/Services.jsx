@@ -44,7 +44,7 @@ const Services = () => {
           return (
             <article
               key={service.id}
-              className="relative grid grid-cols-[62px,1fr] px-4 w-full "
+              className="relative grid grid-cols-[min-content, 1fr] md:grid-cols-[62px,1fr] px-4 w-full "
             >
               <h1 className="py-1.5 flex md:grid md:grid-cols-[50px,1fr] col-span-2 gap-3 items-center my-4 md:my-0 before:content-['0'] before:absolute before:bg-VeryPaleRed before:w-full  before:-z-10 before:py-1.5 before:rounded-l-full md:before:hidden">
                 <span className=" text-VeryLightGray md:col-[1/2] font-bold text-sm py-1.5 rounded-full px-4 bg-BrightRed xl:px-1.5 xl:text-xl text-center">
