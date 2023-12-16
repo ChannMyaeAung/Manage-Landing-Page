@@ -87,9 +87,9 @@ const Testimonials = () => {
         dragControls={dragControls}
         onDragEnd={handleDragEnd}
         style={{
-          x: `-${(index * 200) / customers.length}%`,
+          x: `-${(index * 100) / customers.length}%`,
         }}
-        className="relative hidden  gap-8 w-[150vw] my-16 h-80 md:flex"
+        className="relative hidden px-6  gap-8 w-[150vw] 2xl:w-[100vw] my-16 h-80 md:flex"
       >
         {customers.map((customer, customerIndex) => {
           const { id, name, img, comment } = customer;
@@ -98,10 +98,10 @@ const Testimonials = () => {
             <motion.article
               key={id}
               style={{
-                x: `-${(index * 250) / customers.length}%`,
-                width: `${customers.length * 500}%`,
+                x: `-${(index * 260) / customers.length}%`,
+                width: `${customers.length * 100}vw`,
               }}
-              className="relative flex items-center h-full p-2 text-center transition-all rounded-sm bg-DarkGrayishBlue bg-opacity-20"
+              className="relative flex items-center h-full text-center transition-all rounded-sm bg-DarkGrayishBlue bg-opacity-20"
             >
               <figure className="absolute inset-0 w-20 h-20 mx-auto rounded-full -top-10">
                 <img
@@ -110,7 +110,7 @@ const Testimonials = () => {
                   className="object-cover w-full h-full"
                 />
               </figure>
-              <div className="py-4">
+              <div className="py-4 md:p-2">
                 <h2 className="my-6 text-lg font-semibold">{name}</h2>
                 <p className="mt-3 text-base leading-7 text-DarkGrayishBlue">
                   "{comment}"
