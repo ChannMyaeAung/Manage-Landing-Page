@@ -18,10 +18,10 @@ const Testimonials = () => {
   }, [customers, index]);
 
   const handleDragEnd = (_, info) => {
-    const slideWidth = window.innerWidth; // Adjust this based on your slide width
+    const slideWidth = window.innerWidth;
     const distance = info.offset.x;
 
-    if (Math.abs(distance) > slideWidth / 10) {
+    if (Math.abs(distance) > slideWidth / 3) {
       const newIndex = distance > 0 ? index - 1 : index + 1;
       setIndex(Math.max(0, Math.min(newIndex, testimonials.length - 1)));
     }
@@ -86,7 +86,10 @@ const Testimonials = () => {
         dragElastic={0.1}
         dragControls={dragControls}
         onDragEnd={handleDragEnd}
-        className="relative hidden w-[200vw] my-16 h-80 md:flex gap-8"
+        style={{
+          x: `-${(index * 200) / customers.length}%`,
+        }}
+        className="relative hidden  gap-8 w-[150vw] my-16 h-80 md:flex"
       >
         {customers.map((customer, customerIndex) => {
           const { id, name, img, comment } = customer;
@@ -95,9 +98,10 @@ const Testimonials = () => {
             <motion.article
               key={id}
               style={{
-                x: `-${index * 100}%`,
+                x: `-${(index * 250) / customers.length}%`,
+                width: `${customers.length * 500}%`,
               }}
-              className="relative flex items-center p-2 w-[100vw] h-full text-center transition-all rounded-sm bg-DarkGrayishBlue bg-opacity-20"
+              className="relative flex items-center h-full p-2 text-center transition-all rounded-sm bg-DarkGrayishBlue bg-opacity-20"
             >
               <figure className="absolute inset-0 w-20 h-20 mx-auto rounded-full -top-10">
                 <img

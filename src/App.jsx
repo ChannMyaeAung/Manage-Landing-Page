@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     /* Note - Each section has the padding inline of 4. */
-    <div id="App" className="container mx-auto">
+    <div id="App" className="container mx-auto antialiased">
       <header>
         <Header />
       </header>
