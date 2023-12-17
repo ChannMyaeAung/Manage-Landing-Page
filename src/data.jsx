@@ -2,6 +2,7 @@ import AnishaLiImg from "./assets/images/avatar-anisha.png";
 import AliBravoImg from "./assets/images/avatar-ali.png";
 import RichardWattsImg from "./assets/images/avatar-richard.png";
 import ShaniGoughImg from "./assets/images/avatar-shanai.png";
+import { motion } from "framer-motion";
 
 export const testimonials = [
   {

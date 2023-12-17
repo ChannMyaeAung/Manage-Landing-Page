@@ -53,14 +53,20 @@ const Footer = () => {
       <div className="flex flex-col w-full gap-10">
         <ul className="flex items-center justify-center w-full gap-8 ">
           {footerSocialMedia.map((item) => (
-            <li key={item.id}>
-              <a href={`#`}>
-                <i>{item.icon}</i>
+            <li key={item.id} className="pointer-event-auto">
+              <a
+                href={`#`}
+                data-icon="social-media-icon"
+                className="hover:fill-BrightRed"
+              >
+                {/* custom hover effect on index.css */}
+                {item.icon}
               </a>
             </li>
           ))}
         </ul>
 
+        {/* Change the text on the logo to white  */}
         <figure id="logo" aria-labelledby="logo" className="self-center my-6">
           <svg xmlns="http://www.w3.org/2000/svg" width="146" height="24">
             <g fill="none" fill-rule="evenodd">

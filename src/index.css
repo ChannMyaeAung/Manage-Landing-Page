@@ -53,3 +53,15 @@ article[data-position="activeSlide"] {
 article[data-position="nextSlide"] {
   transform: translateX(100%);
 }
+
+a[data-icon="social-media-icon"] > svg path {
+  transition: all 0.3s ease-in-out !important;
+}
+
+a[data-icon="social-media-icon"] > svg:hover path,
+a[data-icon="social-media-icon"] > svg:focus path,
+a[data-icon="social-media-icon"] > svg:focus-visible path {
+  fill: hsl(12, 88%, 59%) !important;
+
+  pointer-events: auto;
+}
