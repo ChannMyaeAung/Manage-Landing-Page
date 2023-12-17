@@ -25,7 +25,9 @@ const Hero = () => {
           Manage makes it simple for software teams to plan day to day tasks
           while keeping the larger team goals in view.
         </p>
-        <button className="cta__button">Get Started</button>
+        <button className="cta__button" aria-label="Get Started">
+          Get Started
+        </button>
       </article>
     </section>
   );

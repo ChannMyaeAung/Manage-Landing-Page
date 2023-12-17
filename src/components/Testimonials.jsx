@@ -28,8 +28,14 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="px-4 mt-10 overflow-hidden">
-      <h1 className="my-6 text-3xl font-bold text-center text-DarkBlue">
+    <section
+      aria-labelledby="testimonials-section"
+      className="px-4 mt-10 overflow-hidden"
+    >
+      <h1
+        id="testimonials-heading"
+        className="my-6 text-3xl font-bold text-center text-DarkBlue"
+      >
         What they've said
       </h1>
 
@@ -86,6 +92,7 @@ const Testimonials = () => {
         dragElastic={0.1}
         dragControls={dragControls}
         onDragEnd={handleDragEnd}
+        aria-live="polite"
         style={{
           x: `-${(index * 100) / customers.length}%`,
         }}
@@ -122,13 +129,18 @@ const Testimonials = () => {
       </motion.div>
 
       {/* Slider Pagination  */}
-      <div className="flex items-center justify-center gap-1 my-8 md:hidden">
+      <div
+        className="flex items-center justify-center gap-1 my-8 md:hidden"
+        role="group"
+        aria-label="Testimonials Pagination"
+      >
         {customers.map((_, sliderIndex) => (
           <button
             data-button="pagination-btn"
             key={sliderIndex}
             onClick={() => setIndex(sliderIndex)}
             aria-label={`View Image ${sliderIndex + 1}`}
+            aria-current={sliderIndex === index ? "true" : "false"}
             className={`relative w-3 h-3 border-2 rounded-full cursor-pointer border-BrightRed ${
               sliderIndex === index ? "bg-BrightRed" : null
             }`}
@@ -138,7 +150,9 @@ const Testimonials = () => {
 
       {/* CTA Button  */}
       <div className="flex items-center justify-center">
-        <button className="mb-3 cta__button">Get Started</button>
+        <button className="mb-3 cta__button" aria-label="Get Started">
+          Get Started
+        </button>
       </div>
     </section>
   );

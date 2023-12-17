@@ -57,9 +57,13 @@ const Header = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-between px-4 py-8 overflow-hidden">
+    <nav
+      role="navigation"
+      aria-label="Main Navigation"
+      className="flex items-center justify-between px-4 py-8 overflow-hidden"
+    >
       <figure className="flex-shrink">
-        <a href="/">
+        <a href="/" aria-label="Home">
           <img src={logo} alt="logo" />
         </a>
       </figure>
@@ -67,8 +71,16 @@ const Header = () => {
       {/* For mobile screens below 768px */}
       <Fragment>
         {/* Mobile Menu Toggle */}
-        <motion.div className="z-[999] " animate={open ? "open" : "closed"}>
-          <button className="block md:hidden" onClick={toggleNavAndModal}>
+        <motion.div
+          aria-label="mobile menu toggle"
+          className="z-[999] "
+          animate={open ? "open" : "closed"}
+        >
+          <button
+            className="block md:hidden"
+            onClick={toggleNavAndModal}
+            aria-label={open ? "Close Menu" : "Open Menu"}
+          >
             <svg width="23" height="23" viewBox="0 0 23 23">
               <motion.path
                 strokeWidth="3"
@@ -101,7 +113,7 @@ const Header = () => {
             </svg>
           </button>
           {/* Nav Links Modal on mobile screens */}
-          <></>
+
           <motion.div
             ref={navMenuRef}
             animate={open ? "open" : "closed"}
@@ -112,6 +124,9 @@ const Header = () => {
             }}
             initial="closed"
             transition={{ duration: 0.3 }}
+            aria-label="Menu Links on Mobile screens"
+            aria-expanded={open}
+            aria-hidden={open}
           >
             <ul className="flex flex-col items-center py-12 font-bold rounded-sm gap-7 text-DarkBlue">
               {navLinks.map((link) => {
@@ -132,6 +147,8 @@ const Header = () => {
         {open && (
           <div
             id="overlay"
+            aria-expanded={open}
+            aria-hidden={open ? true : false}
             className="fixed top-0 left-0 w-full h-full bg-black opacity-20 md:hidden"
           />
         )}
@@ -139,7 +156,10 @@ const Header = () => {
 
       {/* For Desktop screens =< 768px */}
       <Fragment>
-        <div className="items-center justify-center flex-1 hidden md:flex">
+        <div
+          aria-label="Menu Links on Desktop screens"
+          className="items-center justify-center flex-1 hidden md:flex"
+        >
           <ul className="flex items-center gap-3 text-sm lg:text-base lg:gap-6 xl:text-lg 2xl:text-xl">
             {navLinks.map((link) => {
               return (
