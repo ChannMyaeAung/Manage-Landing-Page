@@ -5,6 +5,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-section"
       className="flex flex-col items-center justify-center gap-3 px-4 md:flex-row-reverse md:justify-between"
     >
       {/* Hero Image */}
@@ -17,11 +18,20 @@ const Hero = () => {
       </figure>
 
       {/* Hero Description Article */}
-      <article className="flex flex-col items-center justify-center flex-1 gap-3 md:items-start">
-        <h1 className="text-3xl font-bold leading-10 md:text-4xl lg:text-5xl lg:leading-tight xl:text-6xl xl:leading-snug text-VeryDarkBlue">
+      <article
+        aria-labelledby="hero article"
+        className="flex flex-col items-center justify-center flex-1 gap-3 md:items-start"
+      >
+        <h1
+          id="hero-heading"
+          className="text-3xl font-bold leading-10 md:text-4xl lg:text-5xl lg:leading-tight xl:text-6xl xl:leading-snug text-VeryDarkBlue"
+        >
           Bring everyone together to build better products.
         </h1>
-        <p className="mb-4 text-base font-light text-DarkGrayishBlue xl:text-lg 2xl:text-xl">
+        <p
+          aria-describedby="hero-description"
+          className="mb-4 text-base font-light text-DarkGrayishBlue xl:text-lg 2xl:text-xl"
+        >
           Manage makes it simple for software teams to plan day to day tasks
           while keeping the larger team goals in view.
         </p>
