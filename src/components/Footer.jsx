@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { footerLinks, footerSocialMedia } from "../data";
 
 /* Notes: Footer data are in data.js file */
@@ -10,6 +10,8 @@ const Footer = () => {
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+
+  const emailRef = useRef();
 
   const handleEmailInput = (e) => {
     const newEmail = e.target.value;
@@ -29,16 +31,16 @@ const Footer = () => {
         {/* Subscription */}
         <div
           id="subscription"
-          className="flex justify-center w-full gap-3 md:justify-evenly lg:justify-center"
+          className="flex items-start justify-center w-full gap-3 lg:justify-center"
         >
-          <div className="w-full gap-3 ">
+          <div className="flex flex-col flex-1 flex-shrink-0 w-full gap-3 ">
             <input
               type="email"
               placeholder="Updates in your inbox…"
               id="subscription"
               name="subscription"
               onChange={handleEmailInput}
-              className="flex-grow flex-shrink-0 w-full px-6 py-3 text-sm border rounded-full lg:text-base md:w-1/2 lg:w-3/4 placeholder:text-DarkGrayishBlue text-BrightRed"
+              className="flex-shrink-0 w-full p-3 text-sm border rounded-full lg:text-base placeholder:text-DarkGrayishBlue text-BrightRed"
             />
             {emailError && (
               <p className="mt-1 text-xs text-BrightRed">{emailError}</p>
