@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { footerLinks, footerSocialMedia } from "../data";
 
 /* Notes: Footer data are in data.js file */
@@ -8,22 +8,42 @@ const Footer = () => {
   const leftLinks = footerLinks.slice(0, 4);
   const rightLinks = footerLinks.slice(4);
 
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const handleEmailInput = (e) => {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail);
+    if (!isValidEmail) {
+      setEmailError("Please enter a valid email address");
+    } else {
+      setEmailError("");
+    }
+  };
+
   return (
     <section className="px-4 py-12 bg-VeryDarkBlue text-VeryLightGray">
       <div className="flex flex-col items-center justify-center gap-10 lg:flex-row-reverse lg:items-start">
         {/* Subscription */}
         <div
           id="subscription"
-          className="flex justify-center w-full gap-3 border md:justify-evenly lg:justify-end"
+          className="flex justify-center w-full gap-3 md:justify-evenly lg:justify-center"
         >
-          <input
-            type="email"
-            placeholder="Updates in your inbox…"
-            id="subscription"
-            name="subscription"
-            className="flex-shrink-0 px-6 py-3 text-sm rounded-full lg:text-base md:w-1/2 lg:w-3/4 placeholder:text-DarkGrayishBlue text-BrightRed"
-          />
-
+          <div className="w-full gap-3 ">
+            <input
+              type="email"
+              placeholder="Updates in your inbox…"
+              id="subscription"
+              name="subscription"
+              onChange={handleEmailInput}
+              className="flex-grow flex-shrink-0 w-full px-6 py-3 text-sm border rounded-full lg:text-base md:w-1/2 lg:w-3/4 placeholder:text-DarkGrayishBlue text-BrightRed"
+            />
+            {emailError && (
+              <p className="mt-1 text-xs text-BrightRed">{emailError}</p>
+            )}
+          </div>
           <button className="flex-shrink shadow-none hover:shadow-none cta__button">
             Go
           </button>
