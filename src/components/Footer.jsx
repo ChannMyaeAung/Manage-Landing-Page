@@ -11,8 +11,6 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
 
-  const emailRef = useRef();
-
   const handleEmailInput = (e) => {
     const newEmail = e.target.value;
     setEmail(newEmail);
@@ -43,16 +41,30 @@ const Footer = () => {
               className="flex-shrink-0 w-full p-3 text-sm border rounded-full lg:text-base placeholder:text-DarkGrayishBlue text-BrightRed"
             />
             {emailError && (
-              <p className="mt-1 text-xs text-BrightRed">{emailError}</p>
+              <p
+                id="email-error"
+                role="alert"
+                aria-description="email error alert"
+                className="mt-1 text-xs text-BrightRed"
+              >
+                {emailError}
+              </p>
             )}
           </div>
-          <button className="flex-shrink shadow-none hover:shadow-none cta__button">
+          <button
+            aria-label="subscription button"
+            className="flex-shrink shadow-none hover:shadow-none cta__button"
+          >
             Go
           </button>
         </div>
         {/* Footer useful links */}
         <div className="flex justify-center w-full gap-12 font-light md:gap-16 md:justify-around">
-          <ul className="flex flex-col gap-6 text-VeryLightGray">
+          <ul
+            className="flex flex-col gap-6 text-VeryLightGray"
+            role="navigation"
+            aria-label="Footer Left Links"
+          >
             {leftLinks.map((link) => (
               <li
                 key={link.id}
@@ -62,7 +74,11 @@ const Footer = () => {
               </li>
             ))}
           </ul>
-          <ul className="flex flex-col gap-6 text-VeryLightGray">
+          <ul
+            className="flex flex-col gap-6 text-VeryLightGray"
+            role="navigation"
+            aria-label="Footer Right Links"
+          >
             {rightLinks.map((link) => (
               <li
                 key={link.id}
@@ -75,13 +91,18 @@ const Footer = () => {
         </div>
         {/* Social Media and Logo */}
         <div className="flex flex-col w-full gap-10 lg:flex-col-reverse">
-          <ul className="flex items-center justify-center w-full gap-8 ">
+          <ul
+            role="navigation"
+            aria-label="Footer Social Media Links"
+            className="flex items-center justify-center w-full gap-8 "
+          >
             {footerSocialMedia.map((item) => (
               <li key={item.id} className="pointer-event-auto">
                 <a
                   href={`#`}
                   data-icon="social-media-icon"
                   className="hover:fill-BrightRed"
+                  aria-label={item.alt}
                 >
                   {/* custom hover effect on index.css */}
                   {item.icon}
@@ -92,7 +113,12 @@ const Footer = () => {
 
           {/* Change the text on the logo to white  */}
           <figure id="logo" aria-labelledby="logo" className="self-center my-6">
-            <svg xmlns="http://www.w3.org/2000/svg" width="146" height="24">
+            <svg
+              aria-label="Company Logo"
+              xmlns="http://www.w3.org/2000/svg"
+              width="146"
+              height="24"
+            >
               <g fill="none" fill-rule="evenodd">
                 <path
                   fill="#FFF"
