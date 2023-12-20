@@ -1,5 +1,7 @@
 import React from "react";
 import heroImage from "../assets/images/illustration-intro.svg";
+import { motion } from "framer-motion";
+import { fadeIn } from "../animation";
 
 const Hero = () => {
   return (
@@ -9,17 +11,27 @@ const Hero = () => {
       className="flex flex-col items-center justify-center gap-3 px-4 md:flex-row-reverse md:justify-between"
     >
       {/* Hero Image */}
-      <figure className="flex items-end flex-1">
+      <motion.figure
+        variants={fadeIn("left", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
+        className="flex items-end flex-1"
+      >
         <img
           src={heroImage}
           className="object-cover w-full h-full"
           alt="Intro illustration image showing general statistics"
         />
-      </figure>
+      </motion.figure>
 
       {/* Hero Description Article */}
-      <article
+      <motion.article
         aria-labelledby="hero article"
+        variants={fadeIn("right", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
         className="flex flex-col items-center justify-center flex-1 gap-3 md:items-start"
       >
         <h1
@@ -38,7 +50,7 @@ const Hero = () => {
         <button className="cta__button" aria-label="Get Started">
           Get Started
         </button>
-      </article>
+      </motion.article>
     </section>
   );
 };

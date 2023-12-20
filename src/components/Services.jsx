@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../animation";
 
 const services = [
   {
@@ -32,7 +34,13 @@ const Services = () => {
       className="flex flex-col gap-10 mt-16 md:flex-row"
     >
       {/* Service Info */}
-      <article className="flex flex-col items-center justify-center gap-3 px-4 text-center md:items-start md:justify-start md:text-start">
+      <motion.article
+        variants={fadeIn("right", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
+        className="flex flex-col items-center justify-center gap-3 px-4 text-center md:items-start md:justify-start md:text-start"
+      >
         <h1
           className="text-2xl font-bold"
           id="services-heading"
@@ -47,10 +55,16 @@ const Services = () => {
           Manage provides all the functionality your team needs, without the
           complexity. Our software is tailor-made for modern digital teams.
         </p>
-      </article>
+      </motion.article>
 
       {/* Services */}
-      <div className="flex flex-col gap-6">
+      <motion.div
+        variants={fadeIn("left", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
+        className="flex flex-col gap-6"
+      >
         {services.map((service) => {
           return (
             <article
@@ -76,7 +90,7 @@ const Services = () => {
             </article>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 };

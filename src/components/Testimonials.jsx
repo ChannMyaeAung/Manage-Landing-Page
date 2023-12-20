@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { testimonials } from "../data";
 import { motion, useDragControls } from "framer-motion";
+import { fadeIn } from "../animation";
 
 const Testimonials = () => {
   const [customers, setCustomers] = useState(testimonials);
@@ -32,15 +33,25 @@ const Testimonials = () => {
       aria-labelledby="testimonials-section"
       className="px-4 mt-10 overflow-hidden"
     >
-      <h1
+      <motion.h1
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
         id="testimonials-heading"
         className="my-6 text-3xl font-bold text-center text-DarkBlue"
       >
         What they've said
-      </h1>
+      </motion.h1>
 
       {/* For mobile screens with paginations */}
-      <div className="relative flex flex-col gap-16 mt-16 h-80 md:hidden">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
+        className="relative flex flex-col gap-16 mt-16 h-80 md:hidden"
+      >
         {customers.map((customer, customerIndex) => {
           const { id, name, img, comment } = customer;
 
@@ -83,7 +94,7 @@ const Testimonials = () => {
             </article>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* For Desktop screens with slider */}
       <motion.div

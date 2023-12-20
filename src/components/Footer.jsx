@@ -119,7 +119,7 @@ const Footer = () => {
               width="146"
               height="24"
             >
-              <g fill="none" fill-rule="evenodd">
+              <g fill="none" fillRule="evenodd">
                 <path
                   fill="#FFF"
                   fill-rule="nonzero"
