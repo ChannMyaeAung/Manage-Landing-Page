@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import MobileMenu from "./MobileMenu";
 export default function MobileToggle({ isNavOpen, setIsNavOpen }) {
   return (
     <motion.div
@@ -47,7 +46,6 @@ export default function MobileToggle({ isNavOpen, setIsNavOpen }) {
           />
         </svg>
       </button>
-      {/* Links in Mobile Menu Modal when opened */}
     </motion.div>
   );
 }

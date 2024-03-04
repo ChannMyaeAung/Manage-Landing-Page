@@ -1,13 +1,25 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/images/logo.svg";
-import { motion } from "framer-motion";
 import MobileToggle from "./mobile/MobileToggle";
-import { navLinks } from "../../data";
 import MobileMenu from "./mobile/MobileMenu";
 import NavLinks from "./NavLinks";
+import Overlay from "./mobile/Overlay";
 
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      let width = window.innerWidth;
+      if (width >= 768) {
+        setIsNavOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  console.log(isNavOpen);
 
   return (
     <nav
@@ -24,17 +36,10 @@ const Header = () => {
       {/* Mobile Menu Toggle */}
       <MobileToggle isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
 
+      {/* Mobile Menu when nav is opened */}
       <MobileMenu isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
       {/* Background overlay when nav modal is open */}
-      {isNavOpen && (
-        <div
-          id="overlay"
-          aria-expanded={isNavOpen}
-          aria-hidden={isNavOpen ? true : false}
-          className="fixed top-0 left-0 w-full h-full bg-black opacity-20 md:hidden"
-          onClick={() => setIsNavOpen(false)}
-        />
-      )}
+      <Overlay isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
 
       {/* For Desktop screens =< 768px */}
       <NavLinks />

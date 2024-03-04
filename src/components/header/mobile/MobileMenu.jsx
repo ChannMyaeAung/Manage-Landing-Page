@@ -28,10 +28,10 @@ export default function MobileMenu({ isNavOpen, setIsNavOpen }) {
       variants={variants}
       initial={false}
       animate={isNavOpen ? "open" : "closed"}
-      className="fixed inset-0 z-50 w-11/12 h-full mx-auto bg-white rounded-md shadow-lg max-h-96 top-24 md:hidden"
+      className="fixed inset-0 z-50 w-11/12 mx-auto bg-white rounded-md shadow-lg h-fit max-h-96 top-24 md:hidden"
       aria-label="Menu Links on Mobile screens"
-      aria-expanded={open}
-      aria-hidden={open}
+      aria-expanded={isNavOpen}
+      aria-hidden={isNavOpen}
     >
       <ul className="flex flex-col items-center py-12 font-bold rounded-sm gap-7 text-DarkBlue">
         {navLinks.map((link) => {
