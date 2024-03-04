@@ -24,6 +24,7 @@ const Header = () => {
       {/* Mobile Menu Toggle */}
       <MobileToggle isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
 
+      <MobileMenu isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
       {/* Background overlay when nav modal is open */}
       {isNavOpen && (
         <div
