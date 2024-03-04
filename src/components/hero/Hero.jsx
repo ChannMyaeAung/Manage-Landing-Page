@@ -1,7 +1,7 @@
 import React from "react";
-import heroImage from "../assets/images/illustration-intro.svg";
+import heroImage from "../../assets/images/illustration-intro.svg";
 import { motion } from "framer-motion";
-import { fadeIn } from "../animation";
+import { fadeIn } from "../../animation";
 
 const Hero = () => {
   return (

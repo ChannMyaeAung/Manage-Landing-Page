@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { fadeIn } from "../animation";
+import { fadeIn } from "../../animation";
 
 const GetStarted = () => {
   return (

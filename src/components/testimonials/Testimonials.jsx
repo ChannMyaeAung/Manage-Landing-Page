@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { testimonials } from "../data";
+import { testimonials } from "../../data";
 import { motion, useDragControls } from "framer-motion";
-import { fadeIn } from "../animation";
+import { fadeIn } from "../../animation";
 
 const Testimonials = () => {
   const [customers, setCustomers] = useState(testimonials);

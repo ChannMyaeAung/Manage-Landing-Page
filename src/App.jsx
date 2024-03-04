@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Services from "./components/Services";
-import Testimonials from "./components/Testimonials";
-import GetStarted from "./components/GetStarted";
-import Footer from "./components/Footer";
+import Header from "./components/header/Header";
+import Hero from "./components/hero/Hero";
+import Services from "./components/services/Services";
+import Testimonials from "./components/testimonials/Testimonials";
+import GetStarted from "./components/getstarted/GetStarted";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (

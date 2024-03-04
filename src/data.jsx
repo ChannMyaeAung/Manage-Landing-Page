@@ -4,6 +4,34 @@ import RichardWattsImg from "./assets/images/avatar-richard.png";
 import ShaniGoughImg from "./assets/images/avatar-shanai.png";
 import { motion } from "framer-motion";
 
+export const navLinks = [
+  {
+    id: 1,
+    href: "pricing",
+    title: "Pricing",
+  },
+  {
+    id: 2,
+    href: "product",
+    title: "Product",
+  },
+  {
+    id: 3,
+    href: "aboutus",
+    title: "About Us",
+  },
+  {
+    id: 4,
+    href: "careers",
+    title: "Careers",
+  },
+  {
+    id: 5,
+    href: "community",
+    title: "Community",
+  },
+];
+
 export const testimonials = [
   {
     id: 1,
