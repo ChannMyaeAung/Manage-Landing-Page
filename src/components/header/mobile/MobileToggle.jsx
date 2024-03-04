@@ -22,6 +22,7 @@ export default function MobileToggle({ isNavOpen, setIsNavOpen }) {
               closed: { d: "M 2 2.5 L 20 2.5" },
               open: { d: "M 3 16.5 L 17 2.5" },
             }}
+            initial={false}
           />
           <motion.path
             strokeWidth="3"
@@ -32,6 +33,7 @@ export default function MobileToggle({ isNavOpen, setIsNavOpen }) {
               closed: { opacity: 1 },
               open: { opacity: 0 },
             }}
+            initial={false}
           />
           <motion.path
             strokeWidth="3"
@@ -41,11 +43,11 @@ export default function MobileToggle({ isNavOpen, setIsNavOpen }) {
               closed: { d: "M 2 16.346 L 20 16.346" },
               open: { d: "M 3 2.5 L 17 16.346" },
             }}
+            initial={false}
           />
         </svg>
       </button>
       {/* Links in Mobile Menu Modal when opened */}
-      <MobileMenu isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
     </motion.div>
   );
 }
