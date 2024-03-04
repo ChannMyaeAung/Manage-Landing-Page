@@ -7,7 +7,7 @@ export default function UsefulLinks() {
   const rightLinks = footerLinks.slice(4);
 
   return (
-    <div className="flex justify-center w-full gap-12 font-light md:gap-16 md:justify-around">
+    <div className="flex w-full gap-12 font-light justify-evenly md:gap-16 md:justify-around">
       <ul
         className="flex flex-col gap-6 text-VeryLightGray"
         role="navigation"
