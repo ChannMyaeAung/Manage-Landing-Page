@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../assets/images/logo.svg";
+import logo from "../../../public/logo.svg";
 import MobileToggle from "./mobile/MobileToggle";
 import MobileMenu from "./mobile/MobileMenu";
 import NavLinks from "./NavLinks";
