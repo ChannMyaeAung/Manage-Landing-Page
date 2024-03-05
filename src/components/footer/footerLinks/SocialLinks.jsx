@@ -1,5 +1,4 @@
 import React from "react";
-import footerLogo from "../../../../public/logo2.svg";
 import { footerSocialMedia } from "../../../data";
 
 export default function SocialLinks() {
@@ -26,7 +25,7 @@ export default function SocialLinks() {
       </ul>
 
       <figure id="logo" aria-labelledby="logo" className="self-center my-6">
-        <img src={footerLogo} alt="logo" />
+        <img src="/logo2.svg" alt="logo" />
       </figure>
     </div>
   );

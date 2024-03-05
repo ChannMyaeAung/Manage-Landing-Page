@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../../public/logo.svg";
 import MobileToggle from "./mobile/MobileToggle";
 import MobileMenu from "./mobile/MobileMenu";
 import NavLinks from "./NavLinks";
@@ -29,7 +28,7 @@ const Header = () => {
     >
       <figure className="flex-shrink">
         <a href="/" aria-label="Home">
-          <img src={logo} alt="logo" />
+          <img src="/logo.svg" alt="logo" />
         </a>
       </figure>
 

@@ -47,6 +47,7 @@ article[data-position="lastSlide"] {
 
 article[data-position="activeSlide"] {
   opacity: 1;
+  width: 100%;
   transform: translateX(0);
 }
 
