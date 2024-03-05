@@ -18,7 +18,7 @@ const variants = {
   },
   closed: {
     opacity: 0,
-    x: 300,
+    x: "-100%",
   },
 };
 

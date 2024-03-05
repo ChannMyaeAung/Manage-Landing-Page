@@ -4,7 +4,7 @@ export default function SliderButtons({ setIndex }) {
   return (
     <>
       <button
-        className="absolute p-1 text-white rounded-full md:left-3 left-1 opacity-40 top-1/2 bg-slate-900 -z-1"
+        className="absolute p-1 text-white rounded-full md:left-3 left-1 opacity-40 top-1/2 bg-slate-900 z-[10]"
         onClick={() => setIndex((prev) => prev - 1)}
       >
         <svg
@@ -23,7 +23,7 @@ export default function SliderButtons({ setIndex }) {
         </svg>
       </button>
       <button
-        className="absolute p-1 text-white rounded-full right-1 md:right-3 opacity-40 top-1/2 bg-slate-900 -z-1"
+        className="absolute p-1 text-white rounded-full right-1 md:right-3 opacity-40 top-1/2 bg-slate-900 z-[10]"
         onClick={() => setIndex((prev) => prev + 1)}
       >
         <svg
